@@ -1,3 +1,4 @@
+import tensorflow as tf
 from cv2 import cv2
 import numpy as np
 from keras_squeezenet import SqueezeNet
@@ -5,7 +6,6 @@ from keras.optimizers import Adam
 from keras.utils import np_utils
 from keras.layers import Activation, Dropout, Convolution2D, GlobalAveragePooling2D
 from keras.models import Sequential
-import tensorflow as tf
 import os
 IMG_SAVE_PATH = 'image_data'
 
