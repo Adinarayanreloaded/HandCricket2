@@ -1,4 +1,3 @@
-import tensorflow as tf
 from cv2 import cv2
 import numpy as np
 from keras_squeezenet import SqueezeNet
@@ -6,7 +5,9 @@ from keras.optimizers import Adam
 from keras.utils import np_utils
 from keras.layers import Activation, Dropout, Convolution2D, GlobalAveragePooling2D
 from keras.models import Sequential
+import tensorflow as tf
 import os
+
 IMG_SAVE_PATH = 'image_data'
 
 CLASS_MAP = {
@@ -27,16 +28,15 @@ def mapper(val):
 
 
 def get_model():
-    model=tf.keras.Sequential([
-    tf.keras.layers.Conv2D(16,(3,3),input_shape=(227,227,3),activation='relu'),
-    tf.keras.layers.MaxPooling2D(2,2),
-    tf.keras.layers.Conv2D(16,(3,3),activation='relu'),
-    tf.keras.layers.MaxPooling2D(2,2),
-    tf.keras.layers.Flatten(),
-    tf.keras.layers.Dense(20,activation='relu'),
-    tf.keras.layers.Dense(7,activation='softmax')
+    model = Sequential([
+        SqueezeNet(input_shape=(227, 227, 3), include_top=False),
+        Dropout(0.5),
+        Convolution2D(NUM_CLASSES, (1, 1), padding='valid'),
+        Activation('relu'),
+        GlobalAveragePooling2D(),
+        Activation('softmax')
     ])
-    return model 
+    return model
 
 
 # load images from the directory
@@ -86,4 +86,5 @@ model.fit(np.array(data), np.array(labels), epochs=10)
 
 # save the model for later use
 model.save("Hand-cricket2-model.h5")
+
 
