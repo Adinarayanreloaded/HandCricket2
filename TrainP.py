@@ -82,7 +82,7 @@ model.compile(
 )
 
 # start training
-numpy.reshape(None,7)
+np.reshape(None,7)
 model.fit(np.array(data), np.array(labels), epochs=10)
 
 # save the model for later use
