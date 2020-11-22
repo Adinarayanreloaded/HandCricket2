@@ -157,7 +157,7 @@ while True:
         sum = 0
         if user_move_name != "none":
             computer_move_name = choice(['one', 'two', 'three','four','fivr','six'])
-            winer = sum
+            winner = sum
             winner = calculate_winner(user_move_name, computer_move_name,sum)
         else:
             computer_move_name = "none"
