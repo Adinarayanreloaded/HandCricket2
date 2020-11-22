@@ -159,6 +159,9 @@ while True:
             computer_move_name = choice(['one', 'two', 'three','four','fivr','six'])
             winner = sum
             winner = calculate_winner(user_move_name, computer_move_name,sum)
+            k = winner
+            if k == 810498:
+            break
         else:
             computer_move_name = "none"
             winner = 0
@@ -181,9 +184,6 @@ while True:
 
     cv2.imshow("Rock Paper Scissors", frame)
 
-    k = cv2.waitKey(10)
-    if k == ord('q'):
-        break
 
 cap.release()
 cv2.destroyAllWindows()
