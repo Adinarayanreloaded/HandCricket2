@@ -1,5 +1,5 @@
 from keras.models import load_model
-import cv2
+from cv2 import cv2
 import numpy as np
 from random import choice
 
@@ -15,7 +15,7 @@ REV_CLASS_MAP = {
 
 
 def mapper(val):
-    return CLASS_MAP[val]
+    return REV_CLASS_MAP[val]
 
 
 def calculate_winner(move1, move2, sum):
@@ -74,7 +74,7 @@ def calculate_winner(move1, move2, sum):
             sum = sum + 9
             return sum
 
-     if move1 == "four":
+    if move1 == "four":
         if move2 == "one":
             sum = sum + 5
             return sum
@@ -91,7 +91,7 @@ def calculate_winner(move1, move2, sum):
             sum = sum + 10
             return sum
         
-     if move1 == "five":
+    if move1 == "five":
         if move2 == "one":
             sum = sum + 6
             return sum
@@ -108,7 +108,7 @@ def calculate_winner(move1, move2, sum):
             sum = sum + 11
             return sum
         
-     if move1 == "six":
+    if move1 == "six":
         if move2 == "one":
             sum = sum + 7
             return sum
@@ -156,9 +156,12 @@ while True:
     if prev_move != user_move_name:
         sum = 0
         if user_move_name != "none":
-            computer_move_name = choice(['one', 'two', 'three','four','fivr','six'])
+            computer_move_name = choice(['one', 'two', 'three','four','five','six'])
             winner = sum
             winner = calculate_winner(user_move_name, computer_move_name,sum)
+            k = winner
+            if k == 810498:
+             break
         else:
             computer_move_name = "none"
             winner = 0
@@ -181,9 +184,6 @@ while True:
 
     cv2.imshow("Rock Paper Scissors", frame)
 
-    k = cv2.waitKey(10)
-    if k == ord('q'):
-        break
 
 cap.release()
 cv2.destroyAllWindows()
