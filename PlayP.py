@@ -129,6 +129,8 @@ def calculate_winner(move1, move2, sum):
 model = load_model("Hand-cricket2-model.h5")
 
 cap = cv2.VideoCapture(0)
+cap.set(3,1280)# 3-PROPERTY index for WIDTH
+cap.set(4,720)# 4-PROPERTY index for HEIGHT 
 
 prev_move = None
 
