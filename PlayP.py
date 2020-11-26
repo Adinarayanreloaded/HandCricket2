@@ -161,7 +161,7 @@ while True:
             winner = calculate_winner(user_move_name, computer_move_name,sum)
             k = winner
             if k == 810498:
-             break
+                break
         else:
             computer_move_name = "none"
             winner = 0
@@ -173,7 +173,7 @@ while True:
                 (50, 50), font, 1.2, (255, 255, 255), 2, cv2.LINE_AA)
     cv2.putText(frame, "Computer's Move: " + computer_move_name,
                 (750, 50), font, 1.2, (255, 255, 255), 2, cv2.LINE_AA)
-    cv2.putText(frame, "Winner: " + winner,
+    cv2.putText(frame, "Winner: " + str(winner),
                 (400, 600), font, 2, (0, 0, 255), 4, cv2.LINE_AA)
 
     if computer_move_name != "none":
