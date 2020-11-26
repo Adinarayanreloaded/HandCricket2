@@ -3,14 +3,15 @@ from cv2 import cv2
 import numpy as np
 from random import choice
 
-REV_CLASS_MAP = {
-    "one": 1,
-    "two": 2,
-    "three": 3,
-    "four": 4,
-    "five": 5,
-    "six": 6,
-    "none":7
+REV_CLASS_MAP={
+    0: "none",
+    1: "one",
+    2: "two",
+    3: "three",
+    4: "four",
+    5: "five",
+    6: "six"
+    
 }
 
 
@@ -163,7 +164,7 @@ while True:
             winner = calculate_winner(user_move_name, computer_move_name,sum)
             k = winner
             if k == 810498:
-                break
+             break
         else:
             computer_move_name = "none"
             winner = 0
