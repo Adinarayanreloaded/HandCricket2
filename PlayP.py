@@ -167,7 +167,7 @@ while True:
              break
         else:
             computer_move_name = "none"
-            winner = 0
+            winner = "Waiting!!"
     prev_move = user_move_name
 
     # display the information
@@ -182,7 +182,7 @@ while True:
     if computer_move_name != "none":
         icon = cv2.imread(
             "images/{}.png".format(computer_move_name))
-        icon = cv2.resize(icon, (400, 400))
+        icon = cv2.resize(icon, (500,500))
         frame[100:500, 800:1200] = icon
 
     cv2.imshow("Hand Cricket Frame ", frame)
@@ -190,6 +190,7 @@ while True:
     k = cv2.waitKey(10)
     if k == ord('q'):
         break
+
 
 cap.release()
 cv2.destroyAllWindows()
