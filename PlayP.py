@@ -184,7 +184,7 @@ while True:
         icon = cv2.resize(icon, (400, 400))
         frame[100:500, 800:1200] = icon
 
-    cv2.imshow("Rock Paper Scissors", frame)
+    cv2.imshow("Hand Cricket Frame ", frame)
 
 
 cap.release()
