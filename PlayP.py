@@ -190,5 +190,6 @@ while True:
     k = cv2.waitKey(10)
     if k == ord('q'):
         break
+
 cap.release()
 cv2.destroyAllWindows()
