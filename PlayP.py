@@ -181,7 +181,7 @@ while True:
 
     if computer_move_name != "none":
         icon = cv2.imread(
-            "images/{}.png".format(computer_move_name))
+            "ImagesF2/{}.png".format(computer_move_name))
         icon = cv2.resize(icon, (400,400))
         frame[100:500, 800:1200] = icon
 
