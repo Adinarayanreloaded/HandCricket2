@@ -159,7 +159,7 @@ while True:
     if prev_move != user_move_name:
         sum = 0
         if user_move_name != "none":
-            computer_move_name = choice(['one', 'two', 'three','four','five','six'])
+            computer_move_name = choice(['1', '2', '3','4','5','6'])
             winner = sum
             winner = calculate_winner(user_move_name, computer_move_name,sum)
             k = winner
