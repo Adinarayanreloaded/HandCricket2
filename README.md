@@ -1,12 +1,18 @@
 # HandCricket2
 A project where the user plays hand cricket with computer using AI and ML.
+
 Requirements
+
 Python 3
+
 Keras
+
 Tensorflow
+
 OpenCV
 
 1.Clone the repository 
+
 Run the command
 
 git clone https://github.com/Adinarayanreloaded/HandCricket2.git
