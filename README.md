@@ -3,12 +3,9 @@ A project where the user plays hand cricket with computer using AI and ML.
 
 Requirements
 
-Python 3
-
+Python 3.7
 Keras
-
 Tensorflow
-
 OpenCV
 
 1.Clone the repository 
