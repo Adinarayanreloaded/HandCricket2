@@ -1,8 +1,12 @@
+
 from keras.models import load_model
 from cv2 import cv2
 import numpy as np
 from random import choice
+import os
+import time
 
+sum=0
 REV_CLASS_MAP={
     0: "none",
     1: "one",
@@ -18,114 +22,32 @@ REV_CLASS_MAP={
 def mapper(val):
     return REV_CLASS_MAP[val]
 
-
-def calculate_winner(move1, move2, sum):
-    if move1 == move2:
-        out = 810498
-        return out
-
-    if move1 == "one":
-        if move2 == "two":
-            sum = sum + 3
-            return sum
-        if move2 == "three":
-            sum = sum + 4
-            return sum
-        if move2 == "four":
-            sum = sum + 5
-            return sum
-        if move2 == "five":
-            sum = sum + 6
-            return sum
-        if move2 == "six":
-            sum = sum + 7
-            return sum
-
-    if move1 == "two":
-        if move2 == "one":
-            sum = sum + 3
-            return sum
-        if move2 == "three":
-            sum = sum + 5
-            return sum
-        if move2 == "four":
-            sum = sum + 6
-            return sum
-        if move2 == "five":
-            sum = sum + 7
-            return sum
-        if move2 == "six":
-            sum = sum + 8
-            return sum
-
-    if move1 == "three":
-        if move2 == "one":
-            sum = sum + 4
-            return sum
-        if move2 == "two":
-            sum = sum + 5
-            return sum
-        if move2 == "four":
-            sum = sum + 7
-            return sum
-        if move2 == "five":
-            sum = sum + 8
-            return sum
-        if move2 == "six":
-            sum = sum + 9
-            return sum
-
-    if move1 == "four":
-        if move2 == "one":
-            sum = sum + 5
-            return sum
-        if move2 == "two":
-            sum = sum + 6
-            return sum
-        if move2 == "three":
-            sum = sum + 7
-            return sum
-        if move2 == "five":
-            sum = sum + 9
-            return sum
-        if move2 == "six":
-            sum = sum + 10
-            return sum
-        
-    if move1 == "five":
-        if move2 == "one":
-            sum = sum + 6
-            return sum
-        if move2 == "two":
-            sum = sum + 7
-            return sum
-        if move2 == "three":
-            sum = sum + 8
-            return sum
-        if move2 == "four":
-            sum = sum + 9
-            return sum
-        if move2 == "six":
-            sum = sum + 11
-            return sum
-        
-    if move1 == "six":
-        if move2 == "one":
-            sum = sum + 7
-            return sum
-        if move2 == "two":
-            sum = sum + 8
-            return sum
-        if move2 == "three":
-            sum = sum + 9
-            return sum
-        if move2 == "four":
-            sum = sum + 10
-            return sum
-        if move2 == "five":
-            sum = sum + 11
-            return sum
-        
+def calculate(move1,move2):
+   global sum,compsum
+   if move1==move2:
+    sum=-1
+    return sum
+   
+   else:
+        if move1==REV_CLASS_MAP.get(1):
+            return 1
+        elif move1==REV_CLASS_MAP.get(2):
+            return 2
+        elif move1==REV_CLASS_MAP.get(3):
+            return 3
+        elif move1==REV_CLASS_MAP.get(4):
+            return 4
+        elif move1==REV_CLASS_MAP.get(5):
+            return 5
+        else:
+            return 6
+def calculate_winner(sum1,sum2):
+    if(sum1>sum2):
+     return "User"
+    elif(sum1<sum2):
+     return "Computer"
+    else: 
+     return "Scores Tied!!"     
         
 model = load_model("Hand-cricket2-model.h5")
 
@@ -134,6 +56,11 @@ cap.set(3,1280)# 3-PROPERTY index for WIDTH
 cap.set(4,720)# 4-PROPERTY index for HEIGHT 
 
 prev_move = None
+
+sum=0
+compsum=0
+turn='User'
+winner='None'
 
 while True:
     ret, frame = cap.read()
@@ -155,33 +82,53 @@ while True:
     move_code = np.argmax(pred[0])
     user_move_name = mapper(move_code)
 
-    # predict the winner (human vs computer)
+    font=cv2.FONT_HERSHEY_SIMPLEX
+    cv2.putText(frame, "First User turn then Comp", 
+                (400,50), font, 0.7, (255,255,255),2, cv2.LINE_AA)
+   
+    # User Turn
+
     if prev_move != user_move_name:
-        sum = 0
         if user_move_name != "none":
             computer_move_name = choice(['one', 'two', 'three','four','five','six'])
-            winner = sum
-            winner = calculate_winner(user_move_name, computer_move_name,sum)
-            k = winner
-            if k == 810498:
-             break
+            if turn=='User':
+                if user_move_name!=computer_move_name:
+                 sum=sum +calculate(user_move_name,computer_move_name)
+                else:
+                    print("out!!")
+                    turn='Computer'
+            else:
+                if user_move_name!=computer_move_name:
+                 compsum=compsum+ calculate(computer_move_name,user_move_name)
+                else:
+                    print("out!!")
+                    turn='User'
+                    winner=calculate_winner(sum,compsum)
+                    sum=0
+                    compsum=0
         else:
             computer_move_name = "none"
-            winner = "Waiting!!"
     prev_move = user_move_name
-
+    
     # display the information
     font = cv2.FONT_HERSHEY_SIMPLEX
     cv2.putText(frame, "Your Move: " + user_move_name,
                 (50, 50), font, 1.2, (255, 255, 255), 2, cv2.LINE_AA)
     cv2.putText(frame, "Computer's Move: " + computer_move_name,
                 (750, 50), font, 1.2, (255, 255, 255), 2, cv2.LINE_AA)
-    cv2.putText(frame, "Winner: " + str(winner),
+    cv2.putText(frame, "Sum: " + str(sum),
                 (400, 600), font, 2, (0, 0, 255), 4, cv2.LINE_AA)
-
+    cv2.putText(frame, "Sum: " + str(compsum),
+                (500, 700), font, 2, (0, 0, 255), 4, cv2.LINE_AA)
+    
+    cv2.putText(frame, "Winner: " + winner,
+                (400, 500), font, 2, (0, 0, 255), 4, cv2.LINE_AA)
+    
+    
+    
     if computer_move_name != "none":
         icon = cv2.imread(
-            "ImagesF2/{}.png".format(computer_move_name))
+            "ImagesF2/{}.png".format(computer_move_name))    
         icon = cv2.resize(icon, (400,400))
         frame[100:500, 800:1200] = icon
 
@@ -189,8 +136,10 @@ while True:
 
     k = cv2.waitKey(10)
     if k == ord('q'):
+        cap.release()
+        cv2.destroyAllWindows()
         break
+    
+    time.sleep(0.1)
 
 
-cap.release()
-cv2.destroyAllWindows()
