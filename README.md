@@ -8,7 +8,7 @@ OpenCV
 
 1.Clone the repository 
 Run the command
-git clone https://github.com/Adinarayanreloaded/HandCricket2
+git clone https://github.com/Adinarayanreloaded/HandCricket2.git
 cd HandCricket2
 
 2.Install the dependencies
