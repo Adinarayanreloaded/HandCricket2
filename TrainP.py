@@ -11,13 +11,14 @@ import os
 IMG_SAVE_PATH = 'image_data'
 
 CLASS_MAP = {
-    "one": 1,
-    "two": 2,
-    "three": 3,
-    "four": 4,
-    "five": 5,
-    "six": 6,
-    "none":7
+    "none":0,
+    "one":1,
+    "two":2,
+    "three":3,
+    "four":4,
+    "five":5,
+    "six":6
+    
 }
 
 NUM_CLASSES = len(CLASS_MAP)
