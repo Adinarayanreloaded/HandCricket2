@@ -6,13 +6,14 @@ import sys
 filepath = sys.argv[1]
 
 REV_CLASS_MAP = {
-    1: "one",
-    2: "two",
-    3: "three",
-    4: "four",
-    5: "five",
-    6: "six",
-    7: "none"
+    0:"none",
+    1:"one",
+    2:"two",
+    3:"three",
+    4:"four",
+    5:"five",
+    6:"six"
+
 }
 
 
