@@ -26,7 +26,7 @@ pip install -r requirements.txt
 
 In the given example below we gather 70 images for the one gesture(Similarily it needs to be done for all the gestures)
 
-python ImagesP.py one 70
+python ImagesP.py <class_name> 70
 
 
 4.We train the model using 
