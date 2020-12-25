@@ -95,13 +95,13 @@ while True:
                 if user_move_name!=computer_move_name:
                  sum=sum +calculate(user_move_name,computer_move_name)
                 else:
-                    print("out!!")
+                    print("User is out!!")
                     turn='Computer'
             else:
                 if user_move_name!=computer_move_name:
                  compsum=compsum+ calculate(computer_move_name,user_move_name)
                 else:
-                    print("out!!")
+                    print("Computer is out!!")
                     turn='User'
                     winner=calculate_winner(sum,compsum)
                     sum=0
