@@ -122,7 +122,7 @@ while True:
                 (500, 700), font, 2, (0, 0, 255), 4, cv2.LINE_AA)
     
     cv2.putText(frame, "Winner: " + winner,
-                (400, 500), font, 2, (0, 0, 255), 4, cv2.LINE_AA)
+                (500, 500), font, 1.0, (0, 0, 255), 4, cv2.LINE_AA)
     
     
     
