@@ -18,6 +18,8 @@ Run the command
 
 git clone https://github.com/Adinarayanreloaded/HandCricket2.git
 
+Open the directory 
+
 cd HandCricket2
 
 2.Install the dependencies
