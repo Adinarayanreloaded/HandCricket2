@@ -5,14 +5,6 @@ Video Tutorial Link :
 
 https://bit.ly/3hrlZNv
 
-Project Report
-
-https://drive.google.com/file/d/13ykM0rVhZSJ5s6o8ZPvH-OXvqSO8A0mk/view?usp=sharing
-
-Project PPT
-
-https://drive.google.com/file/d/121HSlQUAEKDU1pAdJltXGZmwdnfs8ApK/view?usp=sharing
-
 Requirements
 
 Python 3.7
