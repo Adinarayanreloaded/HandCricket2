@@ -3,7 +3,7 @@ A project where the user plays hand cricket with computer using AI and ML.
 
 Video Tutorial Link :
 
-https://bit.ly/3hrlZNv
+https://drive.google.com/file/d/1wqKfy-N4x7hbMBxV0kC_m8nUhRzLRnXJ/view?usp=sharing
 
 Requirements
 
