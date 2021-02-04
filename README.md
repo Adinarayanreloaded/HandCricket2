@@ -5,9 +5,9 @@ Video Tutorial Link :
 
 https://drive.google.com/file/d/1wqKfy-N4x7hbMBxV0kC_m8nUhRzLRnXJ/view?usp=sharing
 
-Project Guide to Install Guide
+Project Guide to Install it
 
-https://docs.google.com/document/d/13ykM0rVhZSJ5s6o8ZPvH-OXvqSO8A0mk/edit
+https://drive.google.com/file/d/13ykM0rVhZSJ5s6o8ZPvH-OXvqSO8A0mk/view?usp=sharing
 
 Requirements
 
