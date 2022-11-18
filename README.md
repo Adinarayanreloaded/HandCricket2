@@ -1,14 +1,6 @@
 # HandCricket2
 A project where the user plays hand cricket with computer using AI and ML.
 
-Video Tutorial Link :
-
-https://drive.google.com/file/d/1LUqlVLw1OeDVt7bygI6v2L9_g5-ZaeGC/view?usp=sharing
-
-Project Guide to Install it
-
-https://drive.google.com/file/d/13ykM0rVhZSJ5s6o8ZPvH-OXvqSO8A0mk/view?usp=sharing
-
 Requirements
 
 Python 3.7
